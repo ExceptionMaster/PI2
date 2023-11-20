@@ -15,11 +15,11 @@ import us.lsi.graphics.MatPlotLib;
 public class TestEjercicio1 {
 	
 	public static void genDataRD() {
-		Integer nMin = 100; // n mínimo para el cálculo
-		Integer nMax = 10000; // n máximo para el cálculo
-		Integer nIncr = 333; // incremento en los valores de n
-		Integer nIter = 1000; // número de iteraciones para cada medición de tiempo
-		Integer nIterWarmup = 10000; // número de iteraciones para warmup
+		Integer nMin = 100; // Valor mínimo de n
+	    Integer nMax = 1000; // Valor máximo de n
+	    Integer nIncr = 33; // Incremento en los valores de n
+	    Integer nIter = 100000; // Número de iteraciones para cada medición de tiempo
+	    Integer nIterWarmup = 10000; // Número de iteraciones para warmup
 		
 		String file = "ficheros_generados/rd.txt";
 		Function<Integer,Long> f1 = GenData.time(t -> Ejercicio1.fRecDouble(t));
@@ -28,11 +28,11 @@ public class TestEjercicio1 {
 	}
 	
 	public static void genDataRBI() {
-		Integer nMin = 100; // n mínimo para el cálculo
-		Integer nMax = 10000; // n máximo para el cálculo
-		Integer nIncr = 333; // incremento en los valores de n
-		Integer nIter = 100; // número de iteraciones para cada medición de tiempo
-		Integer nIterWarmup = 1000; // número de iteraciones para warmup
+		Integer nMin = 100; // Valor mínimo de n
+	    Integer nMax = 1000; // Valor máximo de n
+	    Integer nIncr = 33; // Incremento en los valores de n
+	    Integer nIter = 2000; // Número de iteraciones para cada medición de tiempo
+	    Integer nIterWarmup = 1000; // Número de iteraciones para warmup
 		
 		String file = "ficheros_generados/rbi.txt";
 		Function<Integer,Long> f1 = GenData.time(t -> Ejercicio1.fRecBigInteger(t));
@@ -41,11 +41,11 @@ public class TestEjercicio1 {
 	}
 	
 	public static void genDataID() {
-		Integer nMin = 100; // n mínimo para el cálculo
-		Integer nMax = 10000; // n máximo para el cálculo
-		Integer nIncr = 333; // incremento en los valores de n
-		Integer nIter = 1000; // número de iteraciones para cada medición de tiempo
-		Integer nIterWarmup = 10000; // número de iteraciones para warmup
+		Integer nMin = 100; // Valor mínimo de n
+	    Integer nMax = 1000; // Valor máximo de n
+	    Integer nIncr = 33; // Incremento en los valores de n
+	    Integer nIter = 2000; // Número de iteraciones para cada medición de tiempo
+	    Integer nIterWarmup = 1000; // Número de iteraciones para warmup
 		
 		String file = "ficheros_generados/id.txt";
 		Function<Integer,Long> f1 = GenData.time(t -> Ejercicio1.fIterDouble(t));
@@ -107,10 +107,15 @@ public class TestEjercicio1 {
 	}
 	
 	public static void test() {
+		genDataRD();
+		//genDataRBI();
+		//genDataID();
+		//genDataIBI();
+		
 		showRD();
-		showRBI();
-		showID();
-		showIBI();
+		//showRBI();
+		//showID();
+		//showIBI();
 		
 		MatPlotLib.showCombined("Comparación", List.of("ficheros_generados/rd.txt","ficheros_generados/rbi.txt",
 				"ficheros_generados/id.txt","ficheros_generados/ibi.txt"), 
