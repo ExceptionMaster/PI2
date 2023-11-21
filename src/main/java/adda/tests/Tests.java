@@ -1,10 +1,10 @@
 package adda.tests;
 
-import adda.ejercicios.Ejercicio1;
-
 public class Tests {
 	
 	public static void main(String[] args) {
-		TestEjercicio1.test();
+		//TestEjercicio1.test();
+		//TestEjercicio2.test();
+		TestEjercicio3.test();
 	}
 }

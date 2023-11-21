@@ -107,15 +107,15 @@ public class TestEjercicio1 {
 	}
 	
 	public static void test() {
-		genDataRD();
+		//genDataRD();
 		//genDataRBI();
 		//genDataID();
 		//genDataIBI();
 		
 		showRD();
-		//showRBI();
-		//showID();
-		//showIBI();
+		showRBI();
+		showID();
+		showIBI();
 		
 		MatPlotLib.showCombined("Comparación", List.of("ficheros_generados/rd.txt","ficheros_generados/rbi.txt",
 				"ficheros_generados/id.txt","ficheros_generados/ibi.txt"), 
