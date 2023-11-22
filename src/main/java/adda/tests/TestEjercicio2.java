@@ -3,66 +3,76 @@ package adda.tests;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import org.apache.commons.math3.fitting.WeightedObservedPoint;
 
-import adda.ejercicios.Ejercicio2;
 import us.lsi.curvefitting.DataFile;
 import us.lsi.curvefitting.Fit;
 import us.lsi.curvefitting.GenData;
 import us.lsi.curvefitting.PowerLog;
 import us.lsi.graphics.MatPlotLib;
+import us.lsi.recursivos.problemasdelistas.ProblemasDeListas;
 
-public class TestEjercicio2 {
-	private static Integer nMin = 100; // Valor mínimo de n
-	private static Integer nMax = 10000; // Valor máximo de n
-	private static Integer nIncr = 333; // Incremento en los valores de n
-	private static Integer nIter = 1000; // Número de iteraciones para cada medición de tiempo
-	private static Integer nIterWarmup = 10000; // Número de iteraciones para warmup
-    
-	private static List<Integer> LIST = new ArrayList<>();
+public class TestEjercicio2 {	
+
+	private static Integer nMin = 100; // Tamaño mínimo de la lista a ordenar
+	private static Integer nMax = 10000; // Tamaño máximo de la lista a ordenar
+	private static Integer nIncr = 3300; // Incremento en el tamaño de la lista
+	private static Integer nIter = 50; // Número de iteraciones para calcular el
+	private static Integer nIterWarmup = 500; // Número de iteraciones de calentamiento
 	
-	private static List<Integer> genList(int length) {
-        List<Integer> lista = new ArrayList<>();
-        Random rand = new Random();
-        for (int i = 0; i < length; i++) {
-            lista.add(rand.nextInt(100)); // Números aleatorios hasta 100, puedes ajustar según sea necesario
-        }
-        return lista;
-    }
+	private static List<Integer> LIST = new ArrayList<>();
+	private static Random rr = new Random(System.nanoTime());
+
+
+	// Genera una lista de enteros aleatorios de tamaño t y la asigna a la variable
+	// 'list'
+	private static void genList(Integer n) {
+		List<Integer> ls = new ArrayList<>();
+		for (int i = 0; i < n; i++) {
+			ls.add(rr.nextInt(n + 10000));
+		}
+		LIST = ls; // Genera una lista de enteros aleatorios de tamaño 't'
+	}
 	
 	public static void genData1() {
 		String file = "ficheros_generados/mergeSort1.txt";
-		Function<Integer,Long> f = GenData.time(t -> Ejercicio2.mergeSort(LIST,1));
+		Consumer<Integer> cons = t -> genList(t);
+		Function<Integer, Long> f = GenData.time(cons, t -> ProblemasDeListas.mergeSort(LIST,1));
 //		Integer tMin,Integer tMax,Integer tInc,Integer numIter,Integer numIterWarmup
 		GenData.tiemposEjecucionAritmetica(f, file, nMin, nMax, nIncr, nIter, nIterWarmup);
 	}
 	
 	public static void genData4() {
 		String file = "ficheros_generados/mergeSort4.txt";
-		Function<Integer,Long> f = GenData.time(t -> Ejercicio2.mergeSort(LIST,4));
+		Consumer<Integer> cons = t -> genList(t);
+		Function<Integer, Long> f = GenData.time(cons, t -> ProblemasDeListas.mergeSort(LIST,4));
 //		Integer tMin,Integer tMax,Integer tInc,Integer numIter,Integer numIterWarmup
 		GenData.tiemposEjecucionAritmetica(f, file, nMin, nMax, nIncr, nIter, nIterWarmup);
 	}
 	
 	public static void genData16() {
 		String file = "ficheros_generados/mergeSort16.txt";
-		Function<Integer,Long> f = GenData.time(t -> Ejercicio2.mergeSort(LIST,16));
+		Consumer<Integer> cons = t -> genList(t);
+		Function<Integer, Long> f = GenData.time(cons, t -> ProblemasDeListas.mergeSort(LIST,16));
 //		Integer tMin,Integer tMax,Integer tInc,Integer numIter,Integer numIterWarmup
 		GenData.tiemposEjecucionAritmetica(f, file, nMin, nMax, nIncr, nIter, nIterWarmup);
 	}
 	
 	public static void genData64() {
 		String file = "ficheros_generados/mergeSort64.txt";
-		Function<Integer,Long> f = GenData.time(t -> Ejercicio2.mergeSort(LIST,64));
+		Consumer<Integer> cons = t -> genList(t);
+		Function<Integer, Long> f = GenData.time(cons, t -> ProblemasDeListas.mergeSort(LIST,64));
 //		Integer tMin,Integer tMax,Integer tInc,Integer numIter,Integer numIterWarmup
 		GenData.tiemposEjecucionAritmetica(f, file, nMin, nMax, nIncr, nIter, nIterWarmup);
 	}
 	
 	public static void genData256() {
 		String file = "ficheros_generados/mergeSort256.txt";
-		Function<Integer,Long> f = GenData.time(t -> Ejercicio2.mergeSort(LIST,256));
+		Consumer<Integer> cons = t -> genList(t);
+		Function<Integer, Long> f = GenData.time(cons, t -> ProblemasDeListas.mergeSort(LIST,256));
 //		Integer tMin,Integer tMax,Integer tInc,Integer numIter,Integer numIterWarmup
 		GenData.tiemposEjecucionAritmetica(f, file, nMin, nMax, nIncr, nIter, nIterWarmup);
 	}
