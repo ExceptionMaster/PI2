@@ -127,9 +127,7 @@ public class TestEjercicio2 {
 		MatPlotLib.show(file, pl.getFunction(), pl.getExpression());
 	}
 	
-	public static void test() {
-		genList(100); 
-		
+	public static void test() {	
 		genData1();
 		genData4();
 		genData16();
@@ -144,8 +142,6 @@ public class TestEjercicio2 {
 		
 		MatPlotLib.showCombined("Comparación", List.of("ficheros_generados/mergeSort1.txt","ficheros_generados/mergeSort4.txt",
 				"ficheros_generados/mergeSort16.txt","ficheros_generados/mergeSort64.txt","ficheros_generados/mergeSort256.txt"), 
-				List.of("Umbral = 1","Umbral = 4","Umbral = 16","Umbral = 64",""));
-		
-		
+				List.of("Umbral = 1","Umbral = 4","Umbral = 16","Umbral = 64","Umbral = 256"));
 	}
 }
