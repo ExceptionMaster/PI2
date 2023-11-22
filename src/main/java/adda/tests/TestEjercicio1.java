@@ -25,6 +25,7 @@ public class TestEjercicio1 {
 		Function<Integer,Long> f1 = GenData.time(t -> Ejercicio1.fRecDouble(t));
 //		Integer tMin,Integer tMax,Integer tInc,Integer numIter,Integer numIterWarmup
 		GenData.tiemposEjecucionAritmetica(f1,file,nMin,nMax,nIncr,nIter,nIterWarmup);
+		System.out.println("Fin Recursivo Double");
 	}
 	
 	public static void genDataRBI() {
@@ -38,6 +39,7 @@ public class TestEjercicio1 {
 		Function<Integer,Long> f1 = GenData.time(t -> Ejercicio1.fRecBigInteger(t));
 //		Integer tMin,Integer tMax,Integer tInc,Integer numIter,Integer numIterWarmup
 		GenData.tiemposEjecucionAritmetica(f1,file,nMin,nMax,nIncr,nIter,nIterWarmup);
+		System.out.println("Fin Recursivo BigInteger");
 	}
 	
 	public static void genDataID() {
@@ -51,6 +53,7 @@ public class TestEjercicio1 {
 		Function<Integer,Long> f1 = GenData.time(t -> Ejercicio1.fIterDouble(t));
 //		Integer tMin,Integer tMax,Integer tInc,Integer numIter,Integer numIterWarmup
 		GenData.tiemposEjecucionAritmetica(f1,file,nMin,nMax,nIncr,nIter,nIterWarmup);
+		System.out.println("Fin Iterativo Double");
 	}
 	
 	public static void genDataIBI() {
@@ -64,6 +67,7 @@ public class TestEjercicio1 {
 		Function<Integer,Long> f1 = GenData.time(t -> Ejercicio1.fIterBigInteger(t));
 //		Integer tMin,Integer tMax,Integer tInc,Integer numIter,Integer numIterWarmup
 		GenData.tiemposEjecucionAritmetica(f1,file,nMin,nMax,nIncr,nIter,nIterWarmup);
+		System.out.println("Fin Iterativo BigInteger");
 	}
 	
 	public static void showRD() {
@@ -107,10 +111,10 @@ public class TestEjercicio1 {
 	}
 	
 	public static void test() {
-		//genDataRD();
-		//genDataRBI();
-		//genDataID();
-		//genDataIBI();
+		genDataRD();
+		genDataRBI();
+		genDataID();
+		genDataIBI();
 		
 		showRD();
 		showRBI();
